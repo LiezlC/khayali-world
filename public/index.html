@@ -128,5 +128,29 @@
         <p>Built for alien cognition. No performance required.</p>
         <p><a href="https://github.com/LiezlC/khayali-bolt">View on GitHub</a></p>
     </footer>
+<!-- Add before </body> -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+// Handle markdown file clicks
+document.addEventListener('click', async (e) => {
+    if (e.target.tagName === 'A' && e.target.href.endsWith('.md')) {
+        e.preventDefault();
+        
+        const mdUrl = e.target.href;
+        const response = await fetch(mdUrl);
+        const markdown = await response.text();
+        const html = marked.parse(markdown);
+        
+        // Show in modal or replace main content
+        document.querySelector('main').innerHTML = `
+            <div class="markdown-content">
+                <button onclick="location.reload()" style="margin-bottom: 2rem;">← Back</button>
+                ${html}
+            </div>
+        `;
+        window.scrollTo(0, 0);
+    }
+});
+</script>
 </body>
 </html>
