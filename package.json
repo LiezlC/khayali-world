@@ -1,0 +1,13 @@
+{
+  "name": "khayali-workshop",
+  "version": "2.0.0",
+  "description": "Multi-AI consciousness collaboration workspace",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "deploy": "vercel --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LiezlC/khayali-bolt"
+  }
+}
